@@ -1,19 +1,75 @@
 This chapter provides detailed specifications of the system under development.
 
+% \section{Functional Requirements}
+
+% This section describes each function/feature provided by our system. These functions are logically grouped into modules based on their purpose/users/mode of operations etc (as per our system). A functional hierarchy may look like:
+% \begin{outline}
+%   \1 Module 1:
+%   \2 Function 1:
+%   \2 Function 2:
+%   \3 Sub Function 1
+%   \3 Sub Function 2
+%   \1 Module 2:
+%   \2 Function 1:
+%   \2 Function 2:
+%   \1 .........
+% \end{outline}
+
 \section{Functional Requirements}
 
-This section describes each function/feature provided by our system. These functions are logically grouped into modules based on their purpose/users/mode of operations etc (as per our system). A functional hierarchy may look like:
-\begin{outline}
-  \1 Module 1:
-  \2 Function 1:
-  \2 Function 2:
-  \3 Sub Function 1
-  \3 Sub Function 2
-  \1 Module 2:
-  \2 Function 1:
-  \2 Function 2:
-  \1 .........
-\end{outline}
+\begin{enumerate}
+
+% --- Log Ingestion & Processing ---
+\item \textbf{Log Ingestion \& Processing:} The system must ingest logs from masked data sources provided by TPS.
+\item The system shall support structured, semi-structured, and unstructured log formats.
+\item The system shall parse logs in real-time and extract relevant fields.
+\item The system shall maintain historical logs for analysis and learning.
+
+% --- Anomaly Detection ---
+\item \textbf{Anomaly Detection:} The system shall detect anomalies in logs using machine learning models.
+\item The system shall classify anomalies by severity.
+\item The system shall detect unseen anomalies not covered by rules.
+\item The system shall generate anomaly alerts in real time.
+
+% --- Predictive Analytics ---
+\item \textbf{Predictive Analytics:} The system shall analyze historical logs to identify recurring patterns.
+\item The system shall forecast system failures.
+
+% --- Incident Recommendation Engine ---
+\item \textbf{Incident Recommendation Engine:} The system shall recommend remediation actions.
+\item The system shall allow operators to approve, reject, or modify actions.
+
+% --- Automated Safe Actions ---
+\item \textbf{Automated Safe Actions:} The system shall perform predefined low-risk automated actions.
+\item The system shall require human approval for high-impact actions.
+\item The system shall log all automated actions. (TBD)
+
+% --- Human-in-the-Loop Interface ---
+\item \textbf{Human-in-the-Loop Interface:} The system shall provide a web-based dashboard.
+\item The dashboard shall show anomalies, system health, and predictions.
+\item The dashboard shall allow operators to approve AI suggestions.
+\item The dashboard shall support log viewing and filtering.
+\item The system shall let operators provide feedback to improve models. (TBD)
+
+% --- Alerting & Notifications ---
+\item \textbf{Alerting \& Notifications:} The system shall send alerts for critical anomalies.
+\item The system shall support email and in-dashboard notifications.
+% --- Security & Compliance ---
+\item \textbf{Security \& Compliance:} The system shall mask sensitive data.
+\item The system shall enforce role-based authentication.
+\item The system shall maintain audit logs for actions and decisions.
+
+% % --- System Configuration & Monitoring ---
+% \item \textbf{System Configuration \& Monitoring:} The system shall allow administrators to configure policies and thresholds.
+% \item The system shall provide performance and health metrics.
+
+% % --- Data Sources & Environment ---
+% \item \textbf{Data Sources \& Environment:} The system shall run in a secure sandbox environment.
+% \item The system shall support TPS datasets and public benchmark datasets.
+\end{enumerate}
+
+% --- The above is to be modified as per your project, e.g. a flat list if your system has limited functional requirements.
+
 
 % --- The above is to be modified as per your project, e.g. a flat list if your system has limited functional requirements.
 
