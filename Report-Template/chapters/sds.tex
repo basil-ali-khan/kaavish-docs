@@ -274,3 +274,39 @@ This provides operators with both immediate insights and long-term visibility in
 
 \subsection*{Pipeline Summary}
 \textbf{Raw Logs} $\rightarrow$ \textbf{Logstash} $\rightarrow$ \{ \textbf{PostgreSQL} + \textbf{Kafka} \} $\rightarrow$ \textbf{Agent} $\rightarrow$ \{ \textbf{Anomalies, RCA, Predictions} \} $\rightarrow$ \textbf{Dashboard}
+
+
+\section{Technical Details}
+
+\textbf{Solution Overview:} \\
+The system is designed for automated anomaly detection, root cause analysis (RCA), remediation, and feedback collection. It integrates monitoring, analytics, and AI-driven decision-making to streamline incident response.\\
+
+\textbf{Technology Stack:}
+\begin{itemize}
+    \item \textbf{Frontend:} React 18.3.1, HTML5, CSS3, TypeScript (optional)
+    \item \textbf{UI / Styling:} Tailwind CSS 3.4.13, @headlessui/react 1.7.17, @heroicons/react 2.1.1, clsx 2.1.1
+    \item \textbf{Backend:} Python
+    \item \textbf{Database:} PostgreSQL for structured/persistent storage; optionally Redis for agent context storage
+    \item \textbf{Message Queue / Event Bus:} Kafka for log/event streaming
+    \item \textbf{Multi-Agent Frameworks:} \\
+The system will leverage LangGraph, LangChain, and LangSmith to implement and orchestrate intelligent multi-agent workflows:
+
+\begin{itemize}
+    \item \textbf{LangGraph:} Provides a graph-based framework to define, connect, and manage multiple agents, enabling structured interactions and task delegation between them.
+    \item \textbf{LangChain:} Handles agent reasoning, context management, and chaining of prompts/actions, allowing agents to perform sequential or dependent tasks with memory of prior interactions.
+    \item \textbf{LangSmith:} Provides evaluation, tracking, and orchestration tools for agent workflows, allowing testing, monitoring, and logging of agent decisions and actions for debugging and optimization.
+\end{itemize}
+
+\textbf{Usage in System:} \\
+These frameworks will coordinate agents responsible for analyzing logs, identifying anomalies, generating remediation suggestions, and summarizing results using pre-trained LLMs. Redis may be used to store agent context and intermediate states, while Kafka streams events to the agents in real time. The combination allows a modular, scalable, and observable multi-agent AI system without requiring custom AI model training.
+
+    \item \textbf{Orchestration / Demo Workflow:} n8n (for demo purposes)
+    \item \textbf{Monitoring / Logging:} ELK Stack (Elasticsearch, Logstash, Kibana)
+\end{itemize}
+
+\textbf{AI / ML Components:}
+\begin{itemize}
+    \item \textbf{Anomaly Detection / Prediction:} Using existing models (no new model training)
+    \item \textbf{LLMs / NLP:} GPT-family or similar pre-trained models for log summarization and remediation suggestions
+    \item \textbf{Model Deployment:} Hugging Face Transformers
+\end{itemize}
